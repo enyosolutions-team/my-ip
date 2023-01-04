@@ -5,7 +5,7 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', async (req, res) => {
+app.get(['/', '/ip'], async (req, res) => {
   const result = {};
   try {
     const { data } = await axios.get(`https://ipapi.co/${req.ip}/json/`);
