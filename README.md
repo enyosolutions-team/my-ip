@@ -13,7 +13,7 @@ npm install -g @enyosolutions/my-ip-cli
 ## usage
 
 ```
-myip
+> myip
 ...
 
 
