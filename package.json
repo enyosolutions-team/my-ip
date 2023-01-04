@@ -1,5 +1,5 @@
 {
-  "name": "@enyosolutions/myIp",
+  "name": "my-ip-cli",
   "description": "Express with sensible configuration",
   "author": "www.enyosolutions.com",
   "license": "MIT",
