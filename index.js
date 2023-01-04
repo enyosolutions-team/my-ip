@@ -1,27 +1,24 @@
-require('dotenv').config();
-const {
-  axel, Server
-} = require('axel-core');
+// create javascript app to return the ip address of the client
 
-const middlewares = require('./src/middlewares');
-const { beforeFn, afterFn } = require('./src/bootstrap');
-const MailService = require('./src/api/services/common/MailService');
+const axios = require('axios');
+const express = require('express');
 
+const app = express();
 
-// eslint-disable-next-line
-const port = (process.env.PORT ? parseInt(process.env.PORT) : 0)
-  || axel.config.port
-  || 3333;
+app.get('/', async (req, res) => {
+  const result = {};
+  try {
+    const { data } = await axios.get(`https://ipapi.co/${req.ip}/json/`);
+    result.data = data;
+  } catch (err) {
+    console.warn(err);
+  }
+  res.json({
+    ip: req.ip,
+    ...result,
+  });
+});
 
-axel.port = port;
-axel.services.mailService = MailService;
-
-const server = new Server()
-  .setMiddlewares(middlewares)
-  .before(beforeFn)
-  .after(afterFn);
-
-server.start();
-server.listen(port);
-
-module.exports = server.app;
+app.listen(process.env.PORT || 3000, () => {
+  console.log('istening on port 3000!');
+});
