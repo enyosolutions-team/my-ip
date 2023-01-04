@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -9,13 +9,12 @@ module.exports = {
     'airbnb-base',
     //    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
-  plugins: ['promise'],
+  plugins: [],
   globals: {
-    axel: true,
     expect: true,
     it: true,
     describe: true,
-    beforeAll: true
+    beforeAll: true,
   },
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
@@ -29,19 +28,12 @@ module.exports = {
     'no-underscore-dangle': [
       2,
       {
-        allow: [
-          '_id',
-        ]
-      }
+        allow: ['_id'],
+      },
     ],
     'prefer-destructuring': 0,
     'no-iterator': 1,
-    "no-restricted-syntax": [
-      'error',
-      'ForInStatement',
-      'LabeledStatement',
-      'WithStatement',
-    ],
+    'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
     'consistent-return': 0,
     'comma-dangle': 0,
     'guard-for-in': 0,
@@ -49,23 +41,26 @@ module.exports = {
       2,
       2,
       {
-        SwitchCase: 2
-      }
+        SwitchCase: 2,
+      },
     ],
     radix: 0,
     'object-shorthand': 1,
     'newline-per-chained-call': [
       1,
       {
-        ignoreChainWithDepth: 3
-      }
+        ignoreChainWithDepth: 3,
+      },
     ],
     'no-confusing-arrow': 'error',
     'import/extensions': 0,
     'import/no-unresolved': [2, { ignore: ['^axel-core'] }],
-    "node/no-missing-require": ["error", {
-      "allowModules": ["axel-core"]
-    }],
+    'node/no-missing-require': [
+      'error',
+      {
+        allowModules: ['axel-core'],
+      },
+    ],
 
     'no-mixed-operators': 2,
 
@@ -73,11 +68,8 @@ module.exports = {
     'no-console': [
       'warn',
       {
-        allow: [
-          'warn',
-          'error'
-        ]
-      }
+        allow: ['warn', 'error'],
+      },
     ],
     'no-unused-vars': [
       'error',
@@ -85,20 +77,20 @@ module.exports = {
         vars: 'all',
         args: 'after-used',
         varsIgnorePattern: '[(colors|models)]',
-        ignoreRestSiblings: false
-      }
+        ignoreRestSiblings: false,
+      },
     ],
     'no-plusplus': [
       'error',
       {
-        allowForLoopAfterthoughts: true
-      }
+        allowForLoopAfterthoughts: true,
+      },
     ],
     'max-len': [
       'error',
       {
         code: 150,
-        ignoreUrls: true
+        ignoreUrls: true,
       },
     ],
     // "node/no-unsupported-features/es-syntax": ["error", {
@@ -116,6 +108,6 @@ module.exports = {
     'promise/avoid-new': 0,
     'promise/no-new-statics': 'warn',
     'promise/no-return-in-finally': 'warn',
-    'promise/valid-params': 'warn'
+    'promise/valid-params': 'warn',
   },
 };
